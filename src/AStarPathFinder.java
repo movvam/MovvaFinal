@@ -27,7 +27,27 @@ public class AStarPathFinder {
 	        target = newTarget;
 	    }
 	    
-	    public void calculateHeuristic(){
+	    public void calculateHeuristics(){
+	    	/**
+	    	 * loop through grid
+	    	 * calculate manhattan distance for each node
+	    	 * - get x distance
+	    	 * - get y distance 
+	    	 * - add together
+	    	 * add as Heuristic for each node
+	    	 */
 	    	
+	    	for (int r = 0; r < grid.length; r++){
+	    		for (int c = 0; c < grid[r].length; c++){
+	    			if(grid[r][c] != null){
+		    			int rDist = target.getRow() - r;
+		    			int cDist = target.getCol() - c;
+		    			int heuristic = rDist + cDist;
+		    			grid[r][c].setHeuristic(heuristic);
+	    			}
+	    		}
+	    	}
 	    }
+	    
+	    
 }

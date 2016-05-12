@@ -7,3 +7,7 @@ Day 1: 5/10/16
 Day 2: 5/12/16
 - Added a dev log! 
 - Added getters/setters in Node
+- Created AStarPathFinder class
+	- Set up instance variables and constructor
+	- Created calculateHeuristic which calculates the heuristic for every node on the grid
+	- 
