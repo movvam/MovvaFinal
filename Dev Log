@@ -9,5 +9,12 @@ Day 2: 5/12/16
 - Added getters/setters in Node
 - Created AStarPathFinder class
 	- Set up instance variables and constructor
-	- Created calculateHeuristic which calculates the heuristic for every node on the grid
-	- 
+	- Created calculateHeuristic() which calculates the heuristic for every node on the grid
+	
+Day 3: 5/16/16
+- Created calculateMoveCostAndFVal() which finds the move cost and f value for the locations
+    directly bordering a given location
+- Created findLeastFVal() which loops through the openList to find the node with the least f value
+	- This is meant to be used to find the next node for the A* Pathfinder to go to 
+
+Day 4: 5/17/17

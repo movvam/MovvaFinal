@@ -15,8 +15,14 @@ public class AStarPathFinder {
 	 	public AStarPathFinder(Location start, Location target){
 	 		this.start = start;
 	 		this.target = target;
-	 		//add 4 nodes to openlist
-	 		//set start node move cost to 0, f val to 0
+	 		for (int r = start.getRow() - 1; r <= start.getRow() + 1; r++){
+	    		for(int c = start.getCol() - 1; c <= start.getCol() + 1; c++){
+	    			openList.add(grid[r][c]);
+	    			closedList.remove(grid[r][c]);
+	    		}
+	 		}
+	 		grid[start.getRow()][start.getCol()].setMoveCost(0);
+	 		grid[start.getRow()][start.getCol()].setfVal(0);
 	 	}
 	 
 	    public static void setBlocked(int i, int j){
@@ -66,6 +72,7 @@ public class AStarPathFinder {
 	    			for (int l = r - 1; l <= r + 1; l++){
 	    				for (int p = c - 1; c <= c + 1; p++){
 	    					if(closedList.contains(grid[l][p])){
+	    						closedList.remove(grid[l][p]);
 	    						openList.add(grid[l][p]);			//adds surrounding nodes to openList
 	    					}
 	    				}
@@ -76,14 +83,14 @@ public class AStarPathFinder {
 	    
 	    public Node getLeastFVal(){
 	    	int min = Integer.MAX_VALUE;
-	    	int minLoc;
+	    	int minLoc = 0;
 	    	for (int i = 0; i < openList.size(); i++){
 	    		if(openList.get(i).getfVal() < min){
 	    			min = openList.get(i).getfVal();
 	    			minLoc = i;
 	    		}
 	    	}
-	    	
+	    	return openList.get(minLoc);
 	    }
 	    
 }
