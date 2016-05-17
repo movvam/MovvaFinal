@@ -9,10 +9,14 @@ public class AStarPathFinder {
 	
 	 static Location start;
 	 static Location target;
+	 
+	 private final int MOVECOST = 10;
 	            
 	 	public AStarPathFinder(Location start, Location target){
 	 		this.start = start;
 	 		this.target = target;
+	 		//add 4 nodes to openlist
+	 		//set start node move cost to 0, f val to 0
 	 	}
 	 
 	    public static void setBlocked(int i, int j){
@@ -49,5 +53,37 @@ public class AStarPathFinder {
 	    	}
 	    }
 	    
+	    public void calculateMoveCostAndFVal(Location current){
+	    	for (int r = current.getRow() - 1; r <= current.getRow() + 1; r++){
+	    		for(int c = current.getCol() - 1; c <= current.getCol() + 1; c++){
+	    			int rDist = target.getRow() - r;
+	    			int cDist = target.getCol() - c;
+	    			int steps = rDist + cDist;			//calculates distance away from current location
+	    			
+	    			grid[r][c].setMoveCost(grid[current.getRow()][current.getCol()].getMoveCost() + MOVECOST*steps);
+	    			grid[r][c].setfVal(grid[r][c].getMoveCost() + grid[r][c].getHeuristic()); 	// calculates moveCost and fVal for nodes
+	    			
+	    			for (int l = r - 1; l <= r + 1; l++){
+	    				for (int p = c - 1; c <= c + 1; p++){
+	    					if(closedList.contains(grid[l][p])){
+	    						openList.add(grid[l][p]);			//adds surrounding nodes to openList
+	    					}
+	    				}
+	    			}
+	    		}
+	    	}
+	    }
+	    
+	    public Node getLeastFVal(){
+	    	int min = Integer.MAX_VALUE;
+	    	int minLoc;
+	    	for (int i = 0; i < openList.size(); i++){
+	    		if(openList.get(i).getfVal() < min){
+	    			min = openList.get(i).getfVal();
+	    			minLoc = i;
+	    		}
+	    	}
+	    	
+	    }
 	    
 }
