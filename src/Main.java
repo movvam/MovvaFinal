@@ -12,7 +12,7 @@ public class Main extends PApplet{
 	
 	
 	public void setup(){
-		size(1280, 720);
+		size(1024, 640);
 		
 		g = new Game(this);
 		
@@ -27,10 +27,9 @@ public class Main extends PApplet{
 	}
 	
 	public void mousePressed(){
-		int c = mouseX/32;
-		int r = mouseY/32;
-		g.grid[r][c] = null;
-//		/g.changeGrid(new Wall(), r, c);
+		int r = mouseX/32 - 1 ;
+		int c = mouseY/32 - 1 ;
+		g.grid[r][c].status = 1;
 	}
 	
 }

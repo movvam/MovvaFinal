@@ -11,7 +11,7 @@ public class Game extends PApplet{
 	public Game(PApplet p){
 		this.p = p;
 		
-		grid = new Node[31][21];
+		grid = new Node[32][20];
 		initGrid();
 	}
 	
@@ -33,6 +33,7 @@ public class Game extends PApplet{
 			for(int c = 0; c < grid[0].length-1; c++){
 				
 				grid[i][c].Display(p, 32*i, 32*c );
+				
 			}
 		}
 		
