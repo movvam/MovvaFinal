@@ -1,3 +1,4 @@
+import processing.core.PApplet;
 
 public class Node {
 
@@ -50,6 +51,11 @@ public class Node {
 
 	public void setParentNode(Location parentNode) {
 		this.parentNode = parentNode;
+	}
+
+	public void Display(PApplet p, int x, int y) {
+		
+		p.rect(x, y, 32, 32);
 	}
 
 }
