@@ -17,10 +17,16 @@ public class Game extends PApplet{
 	
 	public void display(){
 		displayGrid();
+		//fillColors();
 	}
 	
 	
 	
+	private void fillColors() {
+		fill(p.color(255, 3, 2));
+		
+	}
+
 	public void displayGrid(){
 		
 		for(int i = 0; i < grid.length-1; i++){

@@ -56,6 +56,8 @@ public class Node {
 	public void Display(PApplet p, int x, int y) {
 		
 		p.rect(x, y, 32, 32);
+		p.fill(255, 246, 204);
+		if (this.loc.getRow() == 4)p.fill(25, 206, 24);
 	}
 
 }
