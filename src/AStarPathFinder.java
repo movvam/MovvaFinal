@@ -59,16 +59,17 @@ public class AStarPathFinder extends PApplet{
 		}
 	 	
 	 	public void initGrid(){
-			for(int i = 0; i < grid.length-1; i++){
-				for(int c = 0; c < grid[0].length-1; c++){
+			for(int i = 0; i <= grid.length-1; i++){
+				for(int c = 0; c <= grid[0].length-1; c++){
 					
 					grid[i][c] = new Node(new Location(i,c));
+					grid[i][c].status = Node.FREE;
 				}
 			}
 	 	}
 	 	
 	    public static void setBlocked(int i, int j){
-	        grid[i][j].status = 1;
+	        grid[i][j].status = Node.BLOCKED;
 	    }
 	    
 	    public static void setStartNode(Location newStart){
@@ -91,7 +92,7 @@ public class AStarPathFinder extends PApplet{
 	    	
 	    	for (int r = 0; r < grid.length; r++){
 	    		for (int c = 0; c < grid[r].length; c++){
-	    			if(grid[r][c].status != 1){
+	    			if(grid[r][c].status != Node.BLOCKED){
 		    			int rDist = target.getRow() - r;
 		    			int cDist = target.getCol() - c;
 		    			int heuristic = rDist + cDist;
@@ -140,10 +141,16 @@ public class AStarPathFinder extends PApplet{
 	    	return openList.get(minLoc);
 	    }
 	    
-	    public void checkIfEnd(Location current){
-	    	if(grid[current.getRow()][current.getCol()].getHeuristic() == 1){
+	    public boolean checkIfEnd(Location current){
+	    	if(grid[current.getRow()][current.getCol()].getHeuristic() == Node.BLOCKED){
 	    		grid[target.getRow()][target.getCol()].setParentNode(current);
-	    	}
+	    		return true;
+	    	} return false; 
 	    }
+
+		public void setAsPath(Location current) {
+			grid[current.getRow()][current.getCol()].status = Node.PATHWAY;
+			
+		}
 	    
 }

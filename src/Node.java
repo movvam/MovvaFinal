@@ -2,7 +2,10 @@ import processing.core.PApplet;
 
 public class Node {
 
-	public int status = 0; //0 = free space, 1 = blocked node
+	public static int FREE = 0;
+	public static int BLOCKED = 1; 
+	public static int PATHWAY = 2;
+	public int status = FREE; //0 = free space, 1 = blocked node
 	private Location loc;
 	private int heuristic; 
 	private int gVal;
@@ -61,6 +64,7 @@ public class Node {
 		if (this.status == 0)	p.fill(255, 246, 204);
 //		if (this.loc.getRow() == 4)p.fill(25, 206, 24);
 		if (this.status == 1)p.fill(25, 3, 206);
+		if (this.status == 2)p.fill(25, 3, 206);
 	}
 
 }
