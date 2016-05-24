@@ -5,8 +5,8 @@ public class Node {
 	public int status = 0; //0 = free space, 1 = blocked node
 	private Location loc;
 	private int heuristic; 
-	private int moveCost;
-	private int fVal;		//moveCost + heuristic
+	private int gVal;
+	private int fVal;		//gVal + heuristic
 	private Location parentNode;
 	
 	public Node(Location loc){
@@ -31,12 +31,12 @@ public class Node {
 		this.heuristic = heuristic;
 	}
 
-	public int getMoveCost() {
-		return moveCost;
+	public int getGVal() {
+		return gVal;
 	}
 
-	public void setMoveCost(int moveCost) {
-		this.moveCost = moveCost;
+	public void setGVal(int gVal) {
+		this.gVal = gVal;
 	}
 
 	public int getfVal() {

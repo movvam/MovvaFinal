@@ -26,3 +26,20 @@ Day 5: 5/19/16
 - Created method to create blocks on the grid
 - Fine tuned block creation/mouse click recognition
 
+Day 6: 5/23/16
+- Identified errors in grid displaying
+- Thought about how to display shortest path
+- Thought about order to run AStarPathFinder methods in Main
+
+Day 7: 5/24/16
+- Created node repointing system so that the pathfinder constantly looks for the shortest path
+- Added keyboard recognition
+
+To do: 
+//loop start (until finds end)
+		//get vals
+		//find least
+		// check if at end
+		//set statuses of the path to something else
+		//display colors
+//		loop end (until finds end)

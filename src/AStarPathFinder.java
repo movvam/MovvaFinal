@@ -30,7 +30,7 @@ public class AStarPathFinder extends PApplet{
 	    			closedList.remove(grid[r][c]);
 	    		}
 	 		}
-	 		grid[start.getRow()][start.getCol()].setMoveCost(0);
+	 		grid[start.getRow()][start.getCol()].setGVal(0);
 	 		grid[start.getRow()][start.getCol()].setfVal(0);
 	 	}
 	 	
@@ -91,7 +91,7 @@ public class AStarPathFinder extends PApplet{
 	    	
 	    	for (int r = 0; r < grid.length; r++){
 	    		for (int c = 0; c < grid[r].length; c++){
-	    			if(grid[r][c] != null){
+	    			if(grid[r][c].status != 1){
 		    			int rDist = target.getRow() - r;
 		    			int cDist = target.getCol() - c;
 		    			int heuristic = rDist + cDist;
@@ -106,22 +106,27 @@ public class AStarPathFinder extends PApplet{
 	    		for(int c = current.getCol() - 1; c <= current.getCol() + 1; c++){
 	    			int rDist = target.getRow() - r;
 	    			int cDist = target.getCol() - c;
-	    			int steps = rDist + cDist;			//calculates distance away from current location
+	    			int steps = rDist + cDist;			//calculates distance away from current location and surrounding nodes
 	    			
-	    			grid[r][c].setMoveCost(grid[current.getRow()][current.getCol()].getMoveCost() + MOVECOST*steps);
-	    			grid[r][c].setfVal(grid[r][c].getMoveCost() + grid[r][c].getHeuristic()); 	// calculates moveCost and fVal for nodes
 	    			
-	    			for (int l = r - 1; l <= r + 1; l++){
-	    				for (int p = c - 1; c <= c + 1; p++){
-	    					if(closedList.contains(grid[l][p])){
-	    						closedList.remove(grid[l][p]);
-	    						openList.add(grid[l][p]);			//adds surrounding nodes to openList
+	    			
+	    			if(openList.contains( grid[r][c] )){
+	    				if (grid[current.getRow()][current.getCol()].getGVal() + MOVECOST*steps < grid[r][c].getGVal()){
+	    					grid[r][c].setParentNode(current);
+	    				}
+	    			}		//repoints if faster route is found
+	    			
+	    			
+	    					if(closedList.contains(grid[r][c])){
+	    						grid[r][c].setGVal(grid[current.getRow()][current.getCol()].getGVal() + MOVECOST*steps);
+	    		    			grid[r][c].setfVal(grid[r][c].getGVal() + grid[r][c].getHeuristic()); 	// calculates moveCost and fVal for nodes
+	    						closedList.remove(grid[r][c]);
+	    						openList.add(grid[r][c]);			//adds node to openList
 	    					}
 	    				}
 	    			}
 	    		}
-	    	}
-	    }
+	    	
 	    
 	    public Node getLeastFVal(){
 	    	int min = Integer.MAX_VALUE;
@@ -133,6 +138,12 @@ public class AStarPathFinder extends PApplet{
 	    		}
 	    	}
 	    	return openList.get(minLoc);
+	    }
+	    
+	    public void checkIfEnd(Location current){
+	    	if(grid[current.getRow()][current.getCol()].getHeuristic() == 1){
+	    		grid[target.getRow()][target.getCol()].setParentNode(current);
+	    	}
 	    }
 	    
 }
