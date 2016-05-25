@@ -34,12 +34,9 @@ Day 6: 5/23/16
 Day 7: 5/24/16
 - Created node repointing system so that the pathfinder constantly looks for the shortest path
 - Added keyboard recognition
+- Created loop within main that should theoretically find the shortest path to the target location and color it in
+- fixed bug where location variables were not accessible 
+- found bug where the code stops running when it hits the first while loop in main 
 
 To do: 
-//loop start (until finds end)
-		//get vals
-		//find least
-		// check if at end
-		//set statuses of the path to something else
-		//display colors
-//		loop end (until finds end)
+get loop to run... then it should work?
