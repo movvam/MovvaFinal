@@ -61,10 +61,10 @@ public class Node {
 	public void Display(PApplet p, int x, int y) {
 		
 		p.rect(x, y, 32, 32);
-		if (this.status == 0)	p.fill(255, 246, 204);
+		if (this.status == FREE)	p.fill(255, 246, 204);
 //		if (this.loc.getRow() == 4)p.fill(25, 206, 24);
-		if (this.status == 1)p.fill(25, 3, 206);
-		if (this.status == 2)p.fill(25, 3, 206);
+		if (this.status == BLOCKED)p.fill(25, 3, 206);
+		if (this.status == PATHWAY)p.fill(25, 3, 206);
 	}
 
 }

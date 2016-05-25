@@ -19,7 +19,7 @@ public class Main extends PApplet{
 		
 	}
 	
-	public void keyPressed(KeyEvent e) {
+	public void keyReleased(KeyEvent e) {
 
 	if (e.getKeyCode()==32)
 	{
@@ -30,15 +30,18 @@ public class Main extends PApplet{
 		      //spacebar key code
 		
 	 
-//		do{
+		do{
 			g.calculateMoveCostAndFVal(current);
 			current = g.getLeastFVal().getLoc(); 
-//		}while (!g.checkIfEnd(current));
-		
+			System.out.print(current.getRow());
+		}while (!g.checkIfEnd(current));
+		System.out.println("hhelloi");
 //		while (current.getRow() != g.start.getRow() || current.getCol() != g.start.getCol()){
-//			g.setAsPath(current);
-//			current = g.grid[current.getRow()][current.getCol()].getParentNode();		
+			g.setAsPath(current);
+			
+			current = g.grid[current.getRow()][current.getCol()].getParentNode();		
 //		}
+		g.display();
 		
 //		loop start (until finds end)
 		//get vals
@@ -55,7 +58,6 @@ public class Main extends PApplet{
 		int r = mouseX/32 ;
 		int c = mouseY/32 -1;
 		if (c < 0) c = 0;
-//		g.grid[r][c].status = 1;
 		AStarPathFinder.setBlocked(r, c);
 	}
 	
