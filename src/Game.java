@@ -1,5 +1,4 @@
 
-import processing.core.PApplet;
 
 public class Game extends PApplet{
 	PApplet p;

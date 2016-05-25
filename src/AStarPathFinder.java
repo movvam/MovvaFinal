@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 import processing.core.PApplet;
 
 public class AStarPathFinder extends PApplet{

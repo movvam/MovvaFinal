@@ -5,11 +5,11 @@ import processing.core.PApplet;
 public class Main extends PApplet{
 	
 	static AStarPathFinder g;
-	Location current = g.start;
+	static Location current;
 	
 	public void setup(){
 		size(1024, 640);
-		
+		current = new Location(2,2);
 		g = new AStarPathFinder(this, new Location(2,2), new Location(22,7));
 		g.calculateHeuristics();
 	}
@@ -25,19 +25,20 @@ public class Main extends PApplet{
 	{
 		
 		System.out.println(g.grid[3][4].getHeuristic());
+		System.out.print(current.getRow());
 		System.out.println("hi");
 		      //spacebar key code
 		
 	 
-		do{
+//		do{
 			g.calculateMoveCostAndFVal(current);
 			current = g.getLeastFVal().getLoc(); 
-		}while (!g.checkIfEnd(current));
+//		}while (!g.checkIfEnd(current));
 		
-		while (current.getRow() != g.start.getRow() || current.getCol() != g.start.getCol()){
-			g.setAsPath(current);
-			current = g.grid[current.getRow()][current.getCol()].getParentNode();		
-		}
+//		while (current.getRow() != g.start.getRow() || current.getCol() != g.start.getCol()){
+//			g.setAsPath(current);
+//			current = g.grid[current.getRow()][current.getCol()].getParentNode();		
+//		}
 		
 //		loop start (until finds end)
 		//get vals
