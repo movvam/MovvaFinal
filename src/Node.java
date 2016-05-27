@@ -44,7 +44,7 @@ public class Node {
 
 	public int getfVal() {
 		return fVal;
-	}
+	} 
 
 	public void setfVal(int fVal) {
 		this.fVal = fVal;

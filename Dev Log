@@ -22,7 +22,7 @@ Day 4: 5/17/16
 	- got grid to display 
 	- mouse click recognition
 	
-Day 5: 5/19/16
+Day 5: 5/19/16 
 - Created method to create blocks on the grid
 - Fine tuned block creation/mouse click recognition
 
@@ -36,7 +36,14 @@ Day 7: 5/24/16
 - Added keyboard recognition
 - Created loop within main that should theoretically find the shortest path to the target location and color it in
 - fixed bug where location variables were not accessible 
-- found bug where the code stops running when it hits the first while loop in main 
+- found bug where the code stops running when it hits the first while loop in Main 
 
-To do: 
-get loop to run... then it should work?
+Day 8: 5/25/16
+- Cleaned up code
+- Added comments where helpful
+- Tried to fix error with loop in Main
+- Created tutorial
+- Recorded video of desired product
+
+To do: localize core.jar
+upload video somehow

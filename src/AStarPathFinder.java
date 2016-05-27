@@ -113,7 +113,7 @@ public class AStarPathFinder extends PApplet {
 				}
 			}
 		}
-	}
+	} 
 
 	public Node getLeastFVal() {		// returns the node with the least fVal. This finds the next node to search for possible paths
 		int min = Integer.MAX_VALUE;

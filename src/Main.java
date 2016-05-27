@@ -18,7 +18,7 @@ public class Main extends PApplet {
 
 	public void draw() {
 		g.display();
-
+ 
 	}
 
 	public void keyReleased(KeyEvent e) {

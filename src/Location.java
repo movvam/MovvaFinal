@@ -32,7 +32,7 @@ public class Location {
 		this.col = col;
 	}
 
-	public int getRow() {
+	public int getRow() { 
 		return row;
 	}
 
